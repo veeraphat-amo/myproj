@@ -1,11 +1,5 @@
-FROM maven:latest
+FROM openjdk
 
-WORKDIR /
+COPY mvnproj-1.0-SNAPSHOT.jar /mvnproj-1.0-SNAPSHOT.jar
 
-COPY src /src
-
-COPY pom.xml /
-
-RUN mvn  clean package
-
-CMD java -cp /target/myproj-1.0-SNAPSHOT.jar com.veeraphat.App
+CMD java -cp /mvnproj-1.0-SNAPSHOT.jar com.veeraphat.App
